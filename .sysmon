@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #settings:
-netspeed=true
+netspeed=false
 ram=false
 cpu=false
 temp=true

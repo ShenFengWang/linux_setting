@@ -1,0 +1,109 @@
+filetype off
+set nocompatible "关闭vi的一致性模式
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+"Bundle加载插件
+Bundle 'gmarik/vundle'
+Bundle 'AutoClose'
+Bundle 'The-NERD-tree'
+"Bundle 'Solarized'
+Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'matchit.zip'
+Bundle 'gregsexton/MatchTag'
+Bundle 'tomasr/molokai'
+
+call vundle#end()
+
+
+filetype plugin indent on
+set t_Co=256 "显示256色
+set background=dark "背景色
+colorscheme molokai "配色主题
+set number         "显示行号
+set ruler          "设置在编辑过程中右下角显示光标的行列信息
+"set nowarp         "当一行文字很长时取消换行
+set showcmd        "在状态栏显示正在输入的命令
+set history=1000   "设置历史记录条数
+"set nobackup       "取消备份
+"set noswapfile     "禁止临时文件生成
+set cursorline     "突出显示当前行
+"set cursorcolumn   "突出显示当前列
+set showmatch      "高亮显示匹配的括号
+set autoindent     "继承前一行的缩进方式
+"set cindent        "使用C样式的缩进
+
+"开启语法高亮功能
+syntax enable
+syntax on
+
+set ignorecase smartcase "搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+set mouse=a        "设置在vim中可以使用鼠标，防止在linux终端下无法拷贝
+set tabstop=4      "Tab宽度
+set shiftwidth=4   "自动对齐空格数
+set softtabstop=4  "按退格键时可以一次删除的空格数
+set expandtab      "将Tab键转换成空格 需要Tab键时使用[Ctrl + V + Tab]
+set encoding=utf-8 "设置编码方式
+
+"自动判断编码时依次尝试以下编码
+set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,latin1
+
+set autoread       "当文件被改动时自动载入
+set confirm        "在处理未保存或只读文件时弹出确认
+set clipboard+=unnamed "与windows共享剪贴板
+set scrolloff=3    "光标移动到窗口顶部和底部时保持3行距离
+"set novisualbell   "关闭使用可视响铃代替呼叫
+"set noerrorbells   "关闭错误信息响铃
+set magic          "设置魔术
+"set hidden         "允许在有未保存的修改时切换缓冲区
+"set hlsearch       "高亮搜索
+set incsearch      "边输入边查找
+
+"<C-D> <C-U>
+nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+
+"插入模式下方向映射
+imap l <right>
+imap h <left>
+"imap j <down>
+"imap k <up>
+"imap <C-K> <up>
+"imap <C-L> <right>
+"imap <C-H> <left>
+"imap <C-j> <down>
+
+"NERDTree settings
+autocmd vimenter * NERDTree "打开Vim自动打开NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
+autocmd vimenter * wincmd w "打开Vim光标在右侧编辑区
+
+"airline settings
+let g:airline_powerline_fonts=0
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='badwolf'
+
+"surround settings
+autocmd FileType php let b:surround_45 = "<?php \r ?>"
+
+"Syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+
+"YouCompleteMe settings
+"let g:EclimCompletionMethod='omnifunc'
+
+"Molokai settings
+let g:molokai_original = 1
+

@@ -69,8 +69,8 @@ nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E
 nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 
 "插入模式下方向映射
-imap l <right>
-imap h <left>
+"imap l <right>
+"imap h <left>
 "imap j <down>
 "imap k <up>
 "imap <C-K> <up>
@@ -107,3 +107,15 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 "Molokai settings
 let g:molokai_original = 1
 
+"复制粘贴
+nmap <F2> "0p
+nmap <S-F2> "0P
+nmap <F3> "*p
+nmap <S-F3> "*P
+nmap <C-F3> "*yy
+
+vmap <C-F3> "*y
+vmap <F2> "0p
+vmap <S-F2> "0P
+vmap <F3> "*p
+vmap <S-F3> "*P

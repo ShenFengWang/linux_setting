@@ -61,22 +61,8 @@ set scrolloff=3    "光标移动到窗口顶部和底部时保持3行距离
 "set noerrorbells   "关闭错误信息响铃
 set magic          "设置魔术
 "set hidden         "允许在有未保存的修改时切换缓冲区
-"set hlsearch       "高亮搜索
+set hlsearch       "高亮搜索
 set incsearch      "边输入边查找
-
-"<C-D> <C-U>
-nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
-nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
-
-"插入模式下方向映射
-"imap l <right>
-"imap h <left>
-"imap j <down>
-"imap k <up>
-"imap <C-K> <up>
-"imap <C-L> <right>
-"imap <C-H> <left>
-"imap <C-j> <down>
 
 "NERDTree settings
 autocmd vimenter * NERDTree "打开Vim自动打开NERDTree
@@ -107,15 +93,43 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 "Molokai settings
 let g:molokai_original = 1
 
+"<C-D> <C-U>
+nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+
+"插入模式下方向映射
+imap l <right>
+"imap h <left>
+"imap j <down>
+"imap k <up>
+"imap <C-K> <up>
+"imap <C-L> <right>
+"imap <C-H> <left>
+"imap <C-J> <down>
+
 "复制粘贴
 nmap <F2> "0p
 nmap <S-F2> "0P
 nmap <F3> "*p
 nmap <S-F3> "*P
 nmap <C-F3> "*yy
-
 vmap <C-F3> "*y
 vmap <F2> "0p
 vmap <S-F2> "0P
 vmap <F3> "*p
 vmap <S-F3> "*P
+
+"取消高亮
+nmap c :nohlsearch<CR>
+
+"两次CTRL-W
+nmap n <C-W><C-W>
+
+"ESC
+imap z' <ESC>
+
+"设置leader
+let mapleader=' '
+
+"标签页逆向切换
+nmap <leader>gt :tabp<CR>

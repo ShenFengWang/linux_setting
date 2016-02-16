@@ -72,7 +72,7 @@ autocmd vimenter * wincmd w "打开Vim光标在右侧编辑区
 "airline settings
 let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
-let g:airline_theme='badwolf'
+let g:airline_theme='term'
 
 "surround settings
 autocmd FileType php let b:surround_45 = "<?php \r ?>"
@@ -129,7 +129,11 @@ nmap n <C-W><C-W>
 imap z' <ESC>
 
 "设置leader
-let mapleader=' '
+"let mapleader=' '
 
 "标签页逆向切换
-nmap <leader>gt :tabp<CR>
+"nmap <leader>gt :tabp<CR>
+
+"标签页操作
+nmap <C-H> gT
+nmap <C-L> gt

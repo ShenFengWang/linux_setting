@@ -98,13 +98,13 @@ nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E
 nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 
 "插入模式下方向映射
-imap l <right>
+"imap l <right>
 "imap h <left>
 "imap j <down>
 "imap k <up>
 "imap <C-K> <up>
-"imap <C-L> <right>
-"imap <C-H> <left>
+imap <C-L> <right>
+imap <C-H> <left>
 "imap <C-J> <down>
 
 "复制粘贴
@@ -137,3 +137,6 @@ imap z' <ESC>
 "标签页操作
 nmap <C-H> gT
 nmap <C-L> gt
+
+"PHP写注释
+nmap <F5> o/*<CR><CR><BS>/<up><ESC>A<space>

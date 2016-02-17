@@ -122,3 +122,4 @@ alias x='exit'
 
 #variable
 test='/home/wang/website/test/'
+setting='/home/wang/doc/linux_setting/'

@@ -16,4 +16,8 @@ echo OFF > /sys/kernel/debug/vgaswitcheroo/switch
 
 #禁用蓝牙
 rfkill block bluetooth
+
+#笔记本 默认屏幕亮度
+#最大亮度 937
+echo 661 > /sys/class/backlight/intel_backlight/brightness
 exit 0

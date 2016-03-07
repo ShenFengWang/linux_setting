@@ -123,6 +123,7 @@ alias ld='ls -ld */'
 alias rm='rm -i'
 alias py='python3'
 
+alias j='jobs'
 alias c='clear'
 alias h='history 50'
 alias x='exit'

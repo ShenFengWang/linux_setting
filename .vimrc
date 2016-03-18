@@ -66,6 +66,7 @@ set incsearch      "边输入边查找
 
 "NERDTree settings
 autocmd vimenter * NERDTree "打开Vim自动打开NERDTree
+"autocmd BufWinEnter * NERDTree "打开tab页仍然显示NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
 autocmd vimenter * wincmd w "打开Vim光标在右侧编辑区
 
@@ -94,18 +95,18 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 let g:molokai_original = 1
 
 "<C-D> <C-U>
-nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
-nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+nmap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+nmap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 
 "插入模式下方向映射
 "imap l <right>
 "imap h <left>
 "imap j <down>
 "imap k <up>
-"imap <C-K> <up>
+imap <C-K> <up>
 imap <C-L> <right>
 imap <C-H> <left>
-"imap <C-J> <down>
+imap <C-J> <down>
 
 "复制粘贴
 nmap <F2> "0p
@@ -122,11 +123,12 @@ vmap <S-F3> "*P
 "取消高亮
 nmap c :nohlsearch<CR>
 
-"两次CTRL-W
+"open split
 nmap n <C-W><C-W>
+nmap b <C-W>h
 
 "ESC
-imap z' <ESC>
+"imap z; <ESC>
 
 "设置leader
 "let mapleader=' '
@@ -139,4 +141,7 @@ nmap <C-H> gT
 nmap <C-L> gt
 
 "PHP写注释
-nmap <F5> o/*<CR><CR><BS>/<up><ESC>A<space>
+nmap <F5> o/**<ESC>o<CR>/<up><ESC>A<space>
+
+"NERDTree开关
+nmap <F9> :NERDTreeToggle<CR>

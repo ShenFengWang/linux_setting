@@ -85,7 +85,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -ahlF --time-style=long-iso'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -117,13 +117,16 @@ fi
 
 #wang's setting
 #alias
+alias pstree='pstree -up'
+
 alias lm='ll | less'
 alias ld='ls -ld */'
-
+alias psa='ps axjf'
 alias rm='rm -i'
+
 alias py='python3'
 
-alias j='jobs'
+alias j='jobs -l'
 alias c='clear'
 alias h='history 50'
 alias x='exit'

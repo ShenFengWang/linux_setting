@@ -119,9 +119,13 @@ fi
 #alias
 alias pstree='pstree -up'
 
+alias psa='ps axjf'
+
 alias lm='ll | less'
 alias ld='ls -ld */'
-alias psa='ps axjf'
+
+alias cu='cd ..'
+
 alias rm='rm -i'
 
 alias py='python3'
@@ -130,7 +134,9 @@ alias j='jobs -l'
 alias c='clear'
 alias h='history 50'
 alias x='exit'
+alias s='set | egrep ^[a-z0-9]+=.*$'
 
 #variable
 test='/home/wang/website/test/'
+yigo='/home/wang/website/yigo/'
 setting='/home/wang/doc/linux_setting/'

@@ -17,6 +17,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'matchit.zip'
 Bundle 'gregsexton/MatchTag'
 Bundle 'tomasr/molokai'
+Bundle 'pangloss/vim-javascript'
+Bundle 'rking/ag.vim'
+Bundle 'stanangeloff/php.vim'
+Bundle 'klen/python-mode'
 
 call vundle#end()
 
@@ -119,6 +123,8 @@ vmap <F2> "0p
 vmap <S-F2> "0P
 vmap <F3> "*p
 vmap <S-F3> "*P
+vmap <F4> "+p
+vmap <S-F4> "+P
 
 "取消高亮
 nmap c :nohlsearch<CR>
@@ -145,3 +151,21 @@ nmap <F5> o/**<ESC>o<CR>/<up><ESC>A<space>
 
 "NERDTree开关
 nmap <F9> :NERDTreeToggle<CR>
+
+"stanangeloff/php.vim setting
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+  hi! def link phpParent   phpComment
+endfunction
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
+"pymode setting
+let g:pymode = 1
+let g:pymode_options_colorcolumn = 0
+let g:pymode_options = 0
+let g:pymode_doc = 0
+autocmd BufNewFile,BufRead *.py set keywordprg=pydoc3.4

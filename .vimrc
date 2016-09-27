@@ -73,11 +73,11 @@ set incsearch      "边输入边查找
 "NERDTree settings
 autocmd vimenter * NERDTree "打开Vim自动打开NERDTree
 "autocmd BufWinEnter * NERDTree "打开tab页仍然显示NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
 autocmd vimenter * wincmd w "打开Vim光标在右侧编辑区
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeCascadeSingleChildDir = 0
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -93,12 +93,11 @@ endfunction
 "call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
 "call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 "call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('py', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('php', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('html', 'Magenta', 'none', '#ff00ff', '#151515')
 
 "NERDTree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {

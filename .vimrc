@@ -6,7 +6,7 @@ call vundle#begin()
 "Bundle加载插件
 Bundle 'gmarik/vundle'
 Bundle 'AutoClose'
-Bundle 'The-NERD-tree'
+"Bundle 'The-NERD-tree'
 "Bundle 'Solarized'
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
@@ -20,7 +20,9 @@ Bundle 'tomasr/molokai'
 Bundle 'pangloss/vim-javascript'
 Bundle 'rking/ag.vim'
 Bundle 'stanangeloff/php.vim'
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 
@@ -71,8 +73,45 @@ set incsearch      "边输入边查找
 "NERDTree settings
 autocmd vimenter * NERDTree "打开Vim自动打开NERDTree
 "autocmd BufWinEnter * NERDTree "打开tab页仍然显示NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "当Vim只剩下NERDTree窗口时关闭Vim
 autocmd vimenter * wincmd w "打开Vim光标在右侧编辑区
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+"call NERDTreeHighlightFile('py', 'green', 'none', 'green', '#151515')
+"call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+"call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+"call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
+
+"NERDTree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 "airline settings
 let g:airline_powerline_fonts=0
@@ -129,9 +168,11 @@ vmap <S-F4> "+P
 "取消高亮
 nmap c :nohlsearch<CR>
 
-"open split
+"change split
 nmap n <C-W><C-W>
 nmap b <C-W>h
+"move split
+nmap N <C-W>x
 
 "ESC
 "imap z; <ESC>
@@ -145,9 +186,6 @@ nmap b <C-W>h
 "标签页操作
 nmap <C-H> gT
 nmap <C-L> gt
-
-"PHP写注释
-nmap <F5> o/**<ESC>o<CR>/<up><ESC>A<space>
 
 "NERDTree开关
 nmap <F9> :NERDTreeToggle<CR>
@@ -163,9 +201,13 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
-"pymode setting
-let g:pymode = 1
-let g:pymode_options_colorcolumn = 0
-let g:pymode_options = 0
-let g:pymode_doc = 0
-autocmd BufNewFile,BufRead *.py set keywordprg=pydoc3.4
+"PHP
+autocmd FileType php nmap <F5> o/**<ESC>o<CR>/<up><ESC>A<space>
+
+"python
+autocmd FileType python setlocal keywordprg=pydoc3
+autocmd FileType python nmap <leader>r :!python3 %<CR>
+autocmd FileType python set cursorcolumn
+autocmd FileType python hi CursorColumn ctermbg=234
+autocmd FileType python set fdm=indent
+

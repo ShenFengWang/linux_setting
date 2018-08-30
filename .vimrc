@@ -22,7 +22,8 @@ Bundle 'rking/ag.vim'
 Bundle 'stanangeloff/php.vim'
 "Bundle 'klen/python-mode'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Xuyuanp/nerdtree-git-plugin'
+"Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'skywind3000/asyncrun.vim'
 
 call vundle#end()
 
@@ -205,8 +206,10 @@ autocmd FileType php nmap <F5> o/**<ESC>o<CR>/<up><ESC>A<space>
 
 "python
 autocmd FileType python setlocal keywordprg=pydoc3
-autocmd FileType python nmap <leader>r :!python3 %<CR>
+"autocmd FileType python nmap <leader>r :!python3 %<CR>
 autocmd FileType python set cursorcolumn
 autocmd FileType python hi CursorColumn ctermbg=234
 autocmd FileType python set fdm=indent
 
+nmap <leader>r :AsyncRun java %<<CR>
+nmap <leader>c :AsyncRun javac %<CR>
